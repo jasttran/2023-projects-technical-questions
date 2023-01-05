@@ -9,12 +9,10 @@ export default function AlertModal({useContents}: AlertModalProps) {
   function onSubmitEvent(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const newAlert = (e.target as any)[0].value;
-
     useContents(previousState => ({
       ...previousState,
       rowContents: previousState.rowContents.concat({
-        alert: newAlert,
+        alert: (e.target as any).elements[0].value,
         status: '',
         updates: []
       })
